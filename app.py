@@ -3,6 +3,7 @@ from flask_cors import CORS
 import pygal
 from pygal.style import DefaultStyle
 import bcrypt
+import os
 
 app = Flask(__name__)
 CORS(app)
