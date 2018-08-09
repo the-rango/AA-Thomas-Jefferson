@@ -7,7 +7,7 @@ import bcrypt
 app = Flask(__name__)
 CORS(app)
 
-@app.route("/<quarter>/<year>/<code>", methods=['POST'])
+@app.route("/<quarter>/<year>/<code>", methods=['GET','POST'])
 def main(quarter, year, code):
 	
 	bu = os.environ.get('PORTOFCALL')
