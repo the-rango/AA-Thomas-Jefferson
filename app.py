@@ -6,7 +6,7 @@ app = Flask(__name__)
 CORS(app)
 
 @app.route("/", methods=['POST'])
-def helloWorld():
+def main():
 	quater = request.form['quarter']
 	year = request.form['year']
 	code = request.form['code']
