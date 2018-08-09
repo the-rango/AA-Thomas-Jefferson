@@ -1,5 +1,7 @@
 from flask import Flask, request
 from flask_cors import CORS
+import pygal
+from pygal.style import DefaultStyle
 import bcrypt
 
 app = Flask(__name__)
