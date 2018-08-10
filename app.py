@@ -13,9 +13,7 @@ CORS(app)
 
 @app.route("/<quarter>/<year>/<code>", methods=['GET','POST'])
 def main(quarter, year, code):
-	
 	bu = os.environ.get('PORTOFCALL')
-
 	try:
 		with urllib.request.urlopen(bu.format(quarter, year, code)) as inf:
 			src = inf.read().decode('utf-8')
@@ -27,7 +25,7 @@ def main(quarter, year, code):
 	
 	client_agent = request.user_agent
 	if client_agent.browser.strip() == 'msie' or 'Edge' in client_agent.string:
-		return '<img src={} />'.format(src)
+		return '<img id="cheerio" src={} />'.format(src)
 	else:
-		return '<embed type="image/svg+xml" src= {} />'.format(src)
+		return '<embed id="cheerio" type="image/svg+xml" src= {} />'.format(src)
 
