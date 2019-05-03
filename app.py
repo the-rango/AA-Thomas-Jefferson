@@ -10,17 +10,17 @@ CORS(app)
 
 @app.route("/<quarter>/<year>/<code>", methods=['GET'])
 def main(quarter, year, code):
-	bu = "https://www.ics.uci.edu/~abakis/{}{}/{}.txt"
+	bu = "https://www.ics.uci.edu/~rang1/{}{}/{}.txt"
 	bu2 = "https://www.ics.uci.edu/~abakis/{}{}/{}.txt" # NEW
 	try:
 		with urllib.request.urlopen(bu.format(quarter, year, code)) as inf:
 			src = inf.read().decode('utf-8')
 
-		with urllib.request.urlopen(bu.format(quarter, year, code.lstrip('0'))) as inf: # NEW
-			description = inf.read() #NEW
+		with urllib.request.urlopen(bu2.format(quarter, year, code.lstrip('0'))) as inf: # NEW
+			description = inf.read().decode('utf-8') #NEW
 
 	except:
-        description = 'We do not have data on this section! Maybe because this section was added in late or got canceled or doesn\'t exist!'
+        	description = 'We do not have data on this section! Maybe because this section was added in late or got canceled or doesn\'t exist!'
 
 		chart = pygal.Line(no_data_text='Course Not Found',
 		style=DefaultStyle(no_data_font_size=40))
