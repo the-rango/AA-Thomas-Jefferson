@@ -11,11 +11,10 @@ Flask-PyMongo==0.5.2
 gunicorn==19.7.1
 idna==2.6
 itsdangerous==0.24
-Jinja2==2.10
+Jinja2==2.10.1
 lxml==4.1.1
 MarkupSafe==1.0
 mccabe==0.6.1
-numpy==1.13.3
 pew==1.1.1
 pipenv==9.0.0
 psutil==5.3.1
@@ -28,7 +27,7 @@ pytz==2017.3
 redis==2.10.6
 requests==2.20.0
 six==1.11.0
-urllib3==1.22
+urllib3==1.24.2
 virtualenv==15.1.0
 virtualenv-clone==0.2.6
 Werkzeug==0.13
