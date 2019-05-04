@@ -11,13 +11,13 @@ CORS(app)
 @app.route("/<quarter>/<year>/<code>", methods=['GET'])
 def main(quarter, year, code):
 	bu = "https://www.ics.uci.edu/~rang1/{}{}/{}.txt"
-	bu2 = "https://www.ics.uci.edu/~abakis/{}{}/{}.txt" # NEW
+	bu2 = "https://www.ics.uci.edu/~abakis/{}{}/{}.txt"
 	try:
 		with urllib.request.urlopen(bu.format(quarter, year, code)) as inf:
 			src = inf.read().decode('utf-8')
 
-		with urllib.request.urlopen(bu2.format(quarter, year, code.lstrip('0'))) as inf: # NEW
-			description = inf.read().decode('utf-8') #NEW
+		with urllib.request.urlopen(bu2.format(quarter, year, code.lstrip('0'))) as inf:
+			description = inf.read().decode('utf-8').replace("There was no waitlist for this course.", "") # temp patch
 
 	except:
         	description = 'We do not have data on this section! Maybe because this section was added in late or got canceled or doesn\'t exist!'
